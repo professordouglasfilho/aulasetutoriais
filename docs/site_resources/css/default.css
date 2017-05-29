@@ -91,8 +91,16 @@ a{
 
 .p-atualizado{
     z-index: 1!important;
+}
+
+#tutorial_maven_spring{
     margin-top: -123px!important;
     color: blanchedalmond !important;
+}
+
+#aulas_java4_webservices{
+    margin-top: -100px!important;
+    color: black !important;
 }
 
 .imagem-do-item{
