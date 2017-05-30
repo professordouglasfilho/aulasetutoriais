@@ -1,0 +1,10 @@
+package br.com.fuctura.model;
+
+/**
+ * Classe modelo (representa o arquivo)
+ * @author douglas.f.filho
+ *
+ */
+public class Paises {
+	
+}

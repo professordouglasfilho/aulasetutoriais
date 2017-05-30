@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="br.com.fuctura.handler.SAXHandler"/>
 <fullyQualifiedTypeName name="org.xml.sax.Attributes"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="org.xml.sax.SAXException"/>
 <fullyQualifiedTypeName name="javax.xml.parsers.SAXParserFactory"/>
 <fullyQualifiedTypeName name="javax.xml.parsers.SAXParser"/>
@@ -11,5 +9,15 @@
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="br.com.fuctura.handler.ArquivoSAXHandler"/>
 <fullyQualifiedTypeName name="br.com.fuctura.model.Arquivo"/>
+<fullyQualifiedTypeName name="com.thoughtworks.xstream.annotations.XStreamAsAttribute"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.thoughtworks.xstream.annotations.XStreamAlias"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.thoughtworks.xstream.annotations.XStreamImplicit"/>
+<fullyQualifiedTypeName name="com.thoughtworks.xstream.annotations.XStreamImplicitCollection"/>
 <fullyQualifiedTypeName name="br.com.fuctura.model.Pais"/>
+<fullyQualifiedTypeName name="com.thoughtworks.xstream.XStream"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="com.thoughtworks.xstream.security.TypePermission"/>
 </qualifiedTypeNameHistroy>

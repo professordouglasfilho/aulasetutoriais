@@ -1,0 +1,12 @@
+package br.com.fuctura.model;
+
+/**
+ * Classe modelo (representa o arquivo)
+ * @author douglas.f.filho
+ *
+ */
+@Xml
+public class Pais {
+	private String nome;
+	private String sigla;
+}

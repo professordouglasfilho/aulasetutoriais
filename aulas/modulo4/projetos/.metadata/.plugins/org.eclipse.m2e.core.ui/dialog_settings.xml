@@ -5,9 +5,11 @@
 			<item value="br.com.fuctura"/>
 		</list>
 		<list key="name">
+			<item value="xstreamproj"/>
 			<item value="saxproj"/>
 		</list>
 		<list key="artifactId">
+			<item value="xstreamproj"/>
 			<item value="saxproj"/>
 		</list>
 		<list key="projectNameTemplate">

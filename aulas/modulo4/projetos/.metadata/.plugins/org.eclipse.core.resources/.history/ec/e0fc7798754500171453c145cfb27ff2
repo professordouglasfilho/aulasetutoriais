@@ -1,0 +1,51 @@
+package br.com.fuctura.main;
+
+import java.util.ArrayList;
+
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.io.xml.DomDriver;
+
+import br.com.fuctura.model.Pais;
+import br.com.fuctura.model.Paises;
+
+public class Main {
+	public static void main(String[] args) {
+		
+	}
+	
+	public static void escrever(){
+		Paises paises = new Paises();
+		
+		Pais brasil = new Pais();
+		brasil.setNome("Brasil");
+		brasil.setSigla("BR");
+		paises.addPais(brasil);
+		
+		Pais us = new Pais();
+		us.setNome("Estados Unidos");
+		us.setSigla("US");
+		paises.addPais(us);
+		
+		Pais fr = new Pais();
+		fr.setNome("França");
+		fr.setSigla("FR");
+		paises.addPais(fr);
+		
+		XStream xstream = new XStream(new DomDriver());
+		
+		@SuppressWarnings("rawtypes")
+		Class[] types = new Class[2];
+		types[0] = Pais.class;
+		types[1] = Paises.class;
+		
+		xstream.processAnnotations(types);
+		String xml = xstream.toXML(paises);
+		
+		System.out.println(xml);
+	}
+	
+	public static void ler(){
+		
+	}
+}
