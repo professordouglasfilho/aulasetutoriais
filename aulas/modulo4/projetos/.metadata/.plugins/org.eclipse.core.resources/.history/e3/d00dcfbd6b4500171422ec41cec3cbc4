@@ -1,0 +1,29 @@
+package br.com.fuctura.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Representa o arquivo XML em si.
+ * @author douglas.f.filho
+ *
+ */
+public class Paises {
+	private List<Pais> paises;
+	
+	public Paises(){
+		paises = new ArrayList<Pais>();
+	}
+
+	public List<Pais> getPaises() {
+		return paises;
+	}
+
+	public void setPaises(List<Pais> paises) {
+		this.paises = paises;
+	}
+	
+	public void addPais(Pais pais){
+		this.paises.add(pais);
+	}
+}

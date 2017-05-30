@@ -1,0 +1,27 @@
+package br.com.fuctura.main;
+
+import br.com.fuctura.handler.ArquivoSAXHandler;
+import br.com.fuctura.model.Arquivo;
+import br.com.fuctura.model.Pais;
+
+/**
+ * A classe que executa o código.
+ * @author douglas.f.filho
+ *
+ */
+public class Main {
+	/**
+	 * Método usado para ler um arquivo XML e converter o mesmo.
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		ArquivoSAXHandler handler = new ArquivoSAXHandler();
+		String filePath = "paises.xml";
+		Arquivo arquivo = handler.parse(filePath);
+		for(Pais pais : arquivo.getPaises()){
+			System.out.println("País: ");
+			System.out.println("-->Sigla: "+pais.getSigla());
+			System.out.println("");
+		}
+	}
+}

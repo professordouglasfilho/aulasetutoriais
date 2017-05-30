@@ -1,0 +1,21 @@
+package br.com.fuctura.handler;
+
+import org.xml.sax.helpers.DefaultHandler;
+
+import br.com.fuctura.model.Arquivo;
+
+/**
+ * Manipulador de eventos em arquivo XML
+ * @author douglas.f.filho
+ *
+ */
+public class SAXHandler extends DefaultHandler {
+	private Arquivo arquivo;
+	
+	public SAXHandler(){
+		super();
+		arquivo = new Arquivo();
+	}
+	
+	
+}

@@ -1,0 +1,9 @@
+1496144120864	Move compilation unit
+1496144147454	Move compilation unit
+1496144153171	Delete element
+1496144211373	Delete element
+1496146365004	Rename type 'SAXHandler'
+1496171307457	Rename type 'ArquivoSAXHandler'
+1496171325080	Rename type 'Arquivo'
+1496171344746	Rename field 'arquivo'
+1496171419103	Rename local variable 'arquivo'

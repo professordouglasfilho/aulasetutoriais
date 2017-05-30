@@ -1,0 +1,12 @@
+package saxproj;
+
+import java.util.List;
+
+/**
+ * Representa o arquivo XML em si.
+ * @author douglas.f.filho
+ *
+ */
+public class Arquivo {
+	private List<Pessoa> pessoas;
+}

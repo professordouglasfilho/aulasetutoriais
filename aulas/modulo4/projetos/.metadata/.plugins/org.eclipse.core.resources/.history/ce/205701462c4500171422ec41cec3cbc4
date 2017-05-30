@@ -1,0 +1,10 @@
+package br.com.fuctura.model;
+
+/**
+ * Representa cada item do arquivo.
+ * @author douglas.f.filho
+ *
+ */
+public class Pessoa {
+
+}
