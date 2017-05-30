@@ -10,6 +10,7 @@ body{
     background-size: cover;
     background-attachment: fixed;
     height: 100% !important;
+    padding-top: 60px !important;
 }
 
 .imagem-de-fundo{
@@ -19,10 +20,25 @@ body{
     z-index: -1 !important;
 }
 
+.navmenu{
+    z-index: 2 !important;
+    position: fixed !important;
+    top: 0px !important;
+    width: 100% !important;
+    background-color: #f8f8f8 !important;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.navmenupath{
+    float: left;
+    margin-left: 15px;
+}
+
 #main{
     z-index: 1 !important;
     position: absolute !important;
-    top: 0px !important;
+    top: 60px !important;
     width: 100% !important;
 }
 
@@ -41,7 +57,13 @@ p{
 }
 
 a{
-    color: darkslategray !important;
+    color: darkred !important;
+    text-decoration: underline !important;
+}
+
+a:hover{
+    text-decoration: none !important;
+    color: black !important;
 }
 
 .passo {
@@ -50,6 +72,7 @@ a{
     margin-right: 41px;
     margin-left: 40px;
     margin-bottom: 30px;
+    padding-top: 70px;
 }
 
 .item-row {
@@ -125,4 +148,14 @@ hr {
     color: black;
     background-color: black;
     border: 0.5px solid black !important;
+}
+
+.navbar-brand{
+    color: black !important;
+    text-decoration: none !important;
+}
+
+.breadcrumb-margins{
+    margin-top: 10px;
+    margin-bottom: -10px;
 }
