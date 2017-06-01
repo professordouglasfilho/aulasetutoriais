@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Como criar um maven web project</title>
+        <meta charset="utf-8">
+
+        <!-- CSS padrão -->
+		<link href='../site_resources/css/default.css' rel="stylesheet" type="text/css">
+		<!-- CSS Bootstrap -->
+		<link href='../site_resources/css/bootstrap.css' rel="stylesheet" type="text/css">
+		<!-- CSS Font Awesome -->
+		<link href='../site_resources/css/font-awesome.css' rel="stylesheet" type="text/css">
+		<!-- CSS jQuery-UI -->
+		<link href='../site_resources/js/jquery-ui.css' rel="stylesheet" type="text/css">
+		<!-- CSS de animações -->
+		<link href='../site_resources/css/animate.css' rel="stylesheet" type="text/css">
+		
+		<!-- jQuery (necessário para plugins Bootstrap's JavaScript) --> 
+		<script type="text/javascript" src='../site_resources/js/jquery.js'></script>
+		<!-- jQuery (necessário para plugins jQuery de gráficos) --> 
+		<script type="text/javascript" src='../site_resources/js/jquery-ui.js'></script>
+		<!-- Inclua, a seguir, todos os plugins pré-compilados, ou inclua arquivos individuais assim que necessário --> 
+		<script type="text/javascript" src='../site_resources/js/bootstrap.js'></script>
+		<!-- Script padrão do projeto --> 
+		<script type="text/javascript" src='../site_resources/js/default.js'></script>
+		
+		<!-- HTML5 shim e Respond.js para suporte a elementos e media queries no IE8 -->
+		<!-- WARNING: Respond.js não funciona se tentar visualizar a página via file:// -->
+		<!--[if lt IE 9]>
+		      <script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		      <script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+
+    </head>
+    <body>
+        <div class="imagem-de-fundo"></div>
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">
+                        Professor Douglas
+                    </a>
+                </div>
+                <div class="container-fluid navbar-left breadcrumb-margins">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Passos
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                            <li><a href="#passo1">Passo 1 - Execute os primeiros passos</a></li>
+                            <li><a href="#passo2">Passo 2 - Baixe o projeto exemplo</a></li>
+                            <li><a href="#passo3">Passo 3 - Escolha a opção de importar usando Maven</a></li>
+                            <li><a href="#passo4">Passo 4 - Procure o projeto</a></li>
+                            <li><a href="#passo5">Passo 5 - Selecione o projeto</a></li>
+                            <li><a href="#passo6">Passo 6 - Aguarde...</a></li>
+                            <li><a href="#passo7">Passo 7 - Visualize os possíveis erros</a></li>
+                            <li><a href="#passo8">Passo 8 - Update Project</a></li>
+                            <li><a href="#passo9">Passo 9 - Configure o Maven</a></li>
+                            <li><a href="#passo10">Passo 10 - Defina instruções de build e deploy</a></li>
+                            <li><a href="#passo11">Passo 11 - Baixe o Tomcat</a></li>
+                            <li><a href="#passo12">Passo 12 - Execute o deploy do Maven</a></li>
+                            <li><a href="#passo13">Passo 13 - Aguarde a construção da aplicação</a></li>
+                            <li><a href="#passo14">Passo 14 - Abra a aplicação no navegador</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="container-fluid navbar-right breadcrumb-margins">
+                    <ol class="breadcrumb">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="firststeps.html">Tutorial 1 - Desenvolvendo aplicações Java</a></li>
+                        <li><a href="saxsample.html">Tutorial 2 - Java, SAX e XML</a></li>
+                        <li class="active">Tutorial 3 - Maven, Java e SpringMVC</li>
+                    </ol>
+                </div>
+            </div>
+        </nav>
+
+        <div id="main" class="container-fluid">
+            <h2 style="color:black;">Criando seu primeiro projeto Maven Web com framework Spring pré configurado</h2>
+            <div class="passo" id="passo1">
+                <p>Caso ainda não tenha feito, execute os <a href="firststeps.html">primeiros passos</a> de nosso tutorial. Feito isso, prossiga para o <a href="#passo2">passo seguinte.</a></p>
+                <img src="../site_resources/images/tut_item3/passo1.png" alt="Imagem do passo 1"/>
+            </div>
+            <div class="passo" id="passo2">
+                <p>Agora que já realizou os primeiros passos, baixe o projeto exemplo <a href="https://github.com/professordouglasfilho/aulasetutoriais/raw/master/tutoriais/javawebmavenspring/APLICACAO_MODELO/springwebapp.7z">neste link</a>
+                <p>Depois de baixado, extraia o conteudo do arquivo dentro do seu workspace</p>
+                <img src="../site_resources/images/tut_item3/passo2.png" alt="Imagem do passo 2"/>
+            </div>
+            <div class="passo" id="passo3">
+                <p>Após a extração, volte ao eclipse e clique com o botão direito do mouse para importar um projeto já existente</p>
+                <img src="../site_resources/images/tut_item3/passo3.png" alt="Imagem do passo 3"/>
+            </div>
+            <div class="passo" id="passo4">
+                <p>Clique em "Browse..." e, logo em seguida, clique em "Ok", para selecionar seu workspace</p>
+                <img src="../site_resources/images/tut_item3/passo4.png" alt="Imagem do passo 4"/>
+            </div>
+            <div class="passo" id="passo5">
+                <p>Selecione o projeto e clique em "Ok"</p>
+                <img src="../site_resources/images/tut_item3/passo5.png" alt="Imagem do passo 5"/>
+            </div>
+            <div class="passo" id="passo6">
+                <p>Aguarde enquanto as configurações do projeto são baixadas e instaladas</p>
+                <img src="../site_resources/images/tut_item3/passo6.png" alt="Imagem do passo 6"/>
+            </div>
+            <div class="passo" id="passo7">
+                <p>Pode ser que algum arquivo apresente erros devido à importação não ter sido completada</p>
+                <img src="../site_resources/images/tut_item3/passo7.png" alt="Imagem do passo 7"/>
+            </div>
+            <div class="passo" id="passo8">
+                <p>Para resolver, clique com o botão direito do mouse sobre o nome do projeto, clique em "Maven" e clique em "Update project". Depois clique em "Ok" e aguarde a atualização.</p>
+                <img src="../site_resources/images/tut_item3/passo8.png" alt="Imagem do passo 8"/>
+            </div>
+            <div class="passo" id="passo9">
+                <p>Configure o maven para realizar o deploy da aplicação</p>
+                <p>Clique com o botão direito do mouse sobre o projeto e selecione "Run as" > "Maven build..."</p>
+                <img src="../site_resources/images/tut_item3/passo9.png" alt="Imagem do passo 9"/>
+            </div>
+            <div class="passo" id="passo10">
+                <p>No campo "Goals" digite "<b>clean tomcat:deploy</b>", clique em "Apply"</p>
+                <img src="../site_resources/images/tut_item3/passo10.png" alt="Imagem do passo 10"/>
+            </div>
+            <div class="passo" id="passo11">
+                <p>Baixe o 
+                    <a href="https://github.com/professordouglasfilho/aulasetutoriais/raw/master/tutoriais/javawebmavenspring/apache-tomcat-8.5.15.7z">Apache Tomcat 8</a>.
+                    Descompacte o arquivo em alguma pasta de seu desejo. Após descompactar o arquivo, entre na pasta "bin" e execute "startup.bat".
+                </p>
+                <p>Aguarde o tomcat iniciar e mostrar a mensagem de "startup" conforme a imagem</p>
+                <img src="../site_resources/images/tut_item3/passo11.png" alt="Imagem do passo 11"/>
+            </div>
+            <div class="passo" id="passo12">
+                <p>Volte no eclipse e clique em "Run"</p>
+                <img src="../site_resources/images/tut_item3/passo12.png" alt="Imagem do passo 12"/>
+            </div>
+            <div class="passo" id="passo13">
+                <p>Aguarde aparecer a mensagem de "BUILD SUCESS" e copie a URL da aplicação conforme mostrada na imagem.</p>
+                <img src="../site_resources/images/tut_item3/passo13.png" alt="Imagem do passo 13"/>
+            </div>
+            <div class="passo" id="passo14">
+                <p>Abra a aplicação no navegador usando a URL copiada</p>
+                <img src="../site_resources/images/tut_item3/passo14.png" alt="Imagem do passo 14"/>
+            </div>
+            <p>Continue nos acompanhando, acesse nossa <a href="../index.html">home</a> e veja o quanto pode aprender com Java.</p>
+            <p style="float: right;padding-right:210px;">Até mais!</p>
+            <br>
+            <br>
+            <hr>
+            <h4 style="color:black;">Acesse este projeto no github: <a href="https://github.com/professordouglasfilho">https://github.com/professordouglasfilho</a></h4>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,10 @@
+package br.com.fuctura.model;
+
+/**
+ * Reflexo do elemento &ltmunicipios&gt
+ * @author douglas.f.filho
+ *
+ */
+public class Municipios implements List{
+	
+}

@@ -1,0 +1,10 @@
+package br.com.fuctura.handler;
+
+/**
+ * Manipulador de XML baseado em SAX
+ * @author douglas.f.filho
+ *
+ */
+public class SAXHandler {
+	
+}

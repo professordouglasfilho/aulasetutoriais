@@ -1,0 +1,23 @@
+package br.com.fuctura.main;
+
+import br.com.fuctura.handler.SAXHandler;
+
+/**
+ * Classe usada para executar a aplicação
+ * @author douglas.f.filho
+ *
+ */
+public class Main {
+
+	public static void main(String[] args) {
+		try{
+			SAXHandler handler = new SAXHandler();
+			handler.setLoggable(true);
+			handler.parse("municipios.xml");
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+
+}

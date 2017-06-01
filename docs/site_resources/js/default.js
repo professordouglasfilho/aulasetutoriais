@@ -1,6 +1,9 @@
-$(document).ready(function(){
-	var height = $(document).height();
+window.onpageshow = function(){
+    var height = $(document).height();
     $(".imagem-de-fundo").height(height);
+}
+
+$(document).ready(function(){
 	
     // Adiciona evento de mostrar descrição do item
     $(".item").click(function(event){
