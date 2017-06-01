@@ -76,7 +76,7 @@ a:hover{
 }
 
 .item-row {
-    margin-right: 38px !important;
+    margin-right: 20px !important;
     margin-left: 0px !important;
     float: left !important;
 	margin-top: 45px !important;
@@ -114,9 +114,6 @@ a:hover{
 
 .p-atualizado{
     z-index: 1!important;
-}
-
-#tutorial_maven_spring{
     margin-top: -123px!important;
     color: blanchedalmond !important;
 }
