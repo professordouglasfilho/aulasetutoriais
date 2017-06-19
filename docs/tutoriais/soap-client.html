@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Consumindo um WebService SOAP com JAX-WS</title>
+        <meta charset="utf-8">
+
+        <!-- CSS padrão -->
+		<link href='../site_resources/css/default.css' rel="stylesheet" type="text/css">
+		<!-- CSS Bootstrap -->
+		<link href='../site_resources/css/bootstrap.css' rel="stylesheet" type="text/css">
+		<!-- CSS Font Awesome -->
+		<link href='../site_resources/css/font-awesome.css' rel="stylesheet" type="text/css">
+		<!-- CSS jQuery-UI -->
+		<link href='../site_resources/js/jquery-ui.css' rel="stylesheet" type="text/css">
+		<!-- CSS de animações -->
+		<link href='../site_resources/css/animate.css' rel="stylesheet" type="text/css">
+		
+		<!-- jQuery (necessário para plugins Bootstrap's JavaScript) --> 
+		<script type="text/javascript" src='../site_resources/js/jquery.js'></script>
+		<!-- jQuery (necessário para plugins jQuery de gráficos) --> 
+		<script type="text/javascript" src='../site_resources/js/jquery-ui.js'></script>
+		<!-- Inclua, a seguir, todos os plugins pré-compilados, ou inclua arquivos individuais assim que necessário --> 
+		<script type="text/javascript" src='../site_resources/js/bootstrap.js'></script>
+		<!-- Script padrão do projeto --> 
+		<script type="text/javascript" src='../site_resources/js/default.js'></script>
+		
+		<!-- HTML5 shim e Respond.js para suporte a elementos e media queries no IE8 -->
+		<!-- WARNING: Respond.js não funciona se tentar visualizar a página via file:// -->
+		<!--[if lt IE 9]>
+		      <script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		      <script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+
+    </head>
+    <body>
+        <div class="imagem-de-fundo"></div>
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">
+                        Professor Douglas
+                    </a>
+                </div>
+                <div class="container-fluid navbar-left breadcrumb-margins">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Passos
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                            <li><a href="#passo1">Passo 1 - Execute o Tutorial 3 - Spring com Maven</a></li>
+                            <li><a href="#passo2">Passo 2 - Adicione as dependecias do JAX-WS</a></li>
+                            <li><a href="#passo3">Passo 3 - Crie o pacote "model" e a classe Municipio</a></li>
+                            <li><a href="#passo4">Passo 4 - Crie a classe Municipios</a></li>
+                            <li><a href="#passo5">Passo 5 - Modifique a classe SiteController</a></li>
+                            <li><a href="#passo6">Passo 6 - Redeploy da aplicação</a></li>
+                            <li><a href="#passo7">Passo 7 - Teste da aplicação</a></li>
+                            <li><a href="#passo8">Passo 8 - Veja o codigo no GitHub</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="container-fluid navbar-right breadcrumb-margins">
+                    <ol class="breadcrumb">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="mavenwebstart.html">Tutorial 6 - Consumindo o XML da Web</a></li>
+                        <li><a href="xstreamsample.html">Tutorial 7 - Webservice SOAP</a></li>
+                        <li class="active">Tutorial 8 - Consumindo WebService SOAP</li>
+                    </ol>
+                </div>
+            </div>
+        </nav>
+
+        <div id="main" class="container-fluid">
+            <h2 style="color:black;">Consumindo WebService SOAP com JAX-WS</h2>
+            <div class="passo" id="passo1">
+                <p>Para prosseguir com este tutorial é necessário que já tenha executado com êxito o <a href="mavenwebstart.html">Tutorial 3 - SpringMVC</a></p>
+                <img src="../site_resources/images/tut_item8/passo1.png" alt="Imagem do passo 1"/>
+            </div>
+            <div class="passo" id="passo2">
+                <p>Supondo que já realizou os passos do tutorial 3 e está com sua aplicação rodando no Tomcat</p>
+                <p>Adicione as dependencias do JAX-WS em seu pom.xml</p>
+                <div class="codigo-java">
+                    <p>&lt;dependency&gt;</p>
+                    <p>&emsp;&lt;groupId&gt;javax.xml.ws&lt;/groupId&gt;</p>
+                    <p>&emsp;&lt;artifactId&gt;jaxws-api&lt;/artifactId&gt;</p>
+                    <p>&emsp;&lt;version&gt;2.2.11&lt;/version&gt;</p>
+                    <p>&lt;/dependency&gt;</p>
+                    <p>&lt;dependency&gt;</p>
+                    <p>&emsp;&lt;groupId&gt;com.sun.xml.ws&lt;/groupId&gt;</p>
+                    <p>&emsp;&lt;artifactId&gt;jaxws-rt&lt;/artifactId&gt;</p>
+                    <p>&emsp;&lt;version&gt;2.2.10&lt;/version&gt;</p>
+                    <p>&lt;/dependency&gt;</p>
+                    <p>&lt;dependency&gt;</p>
+                    <p>&emsp;&lt;groupId&gt;org.glassfish.ha&lt;/groupId&gt;</p>
+                    <p>&emsp;&lt;artifactId&gt;ha-api&lt;/artifactId&gt;</p>
+                    <p>&emsp;&lt;version&gt;3.1.9&lt;/version&gt;</p>
+                    <p>&lt;/dependency&gt;</p>
+                </div>
+                <img src="../site_resources/images/tut_item8/passo2.png" alt="Imagem do passo 2"/>
+            </div>
+            <div class="passo" id="passo3">
+                <p>Ainda no pom.xml, adicione o seguinte plugin (sob o escopo de pluginManagement):</p>
+                <div class="codigo-java">
+                    <p>&lt;pluginManagement&gt;</p>
+                    <p>&emsp;&lt;plugins&gt;</p>
+                    <p>&emsp;&emsp;&lt;plugin&gt; </p>
+                    <p>&emsp;&emsp;&emsp;&lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;</p>
+                    <p>&emsp;&emsp;&emsp;&lt;artifactId&gt;jaxws-maven-plugin&lt;/artifactId&gt;</p>
+                    <p>&emsp;&emsp;&emsp;&lt;version&gt;1.12&lt;/version&gt;</p>
+                    <p>&emsp;&emsp;&emsp;&lt;executions&gt; </p>
+                    <p>&emsp;&emsp;&emsp;&emsp;&lt;execution&gt; </p>
+                    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&lt;id&gt;wsimport-from-jdk&lt;/id&gt;</p>
+                    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&lt;goals&gt;</p>
+                    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;goal&gt;wsimport&lt;/goal&gt;</p>
+                    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&lt;/goals&gt;</p>
+                    <p>&emsp;&emsp;&emsp;&emsp;&lt;/execution&gt;</p>
+                    <p>&emsp;&emsp;&emsp;&lt;/executions&gt;</p>
+                    <p>&emsp;&emsp;&emsp;&lt;configuration&gt;</p>
+                    <p>&emsp;&emsp;&emsp;&emsp;&lt;!-- using wsdl from an url --&gt;</p>
+                    <p>&emsp;&emsp;&emsp;&emsp;&lt;wsdlUrls&gt;</p>
+                    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&lt;wsdlUrl&gt;</p>
+                    <p>&emsp;&emsp;&emsp;&emsp;http://soap-sample.herokuapp.com/municipios?wsdl</p>
+                    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&lt;/wsdlUrl&gt;</p>
+                    <p>&emsp;&emsp;&emsp;&emsp;&lt;/wsdlUrls&gt;</p>
+                    <p>&emsp;&emsp;&emsp;&emsp;&lt;keep&gt;true&lt;/keep&gt; </p>
+                    <p>&emsp;&emsp;&emsp;&emsp;&lt;packageName&gt;br.com.fuctura.webservices&lt;/packageName&gt; </p>
+                    <p>&emsp;&emsp;&emsp;&emsp;&lt;sourceDestDir&gt;src/main/java&lt;/sourceDestDir&gt;</p>
+                    <p>&emsp;&emsp;&emsp;&lt;/configuration&gt;</p>
+                    <p>&emsp;&emsp;&lt;/plugin&gt;</p>
+                    <p>&emsp;&lt;/plugins&gt;</p>
+                    <p>&lt;/pluginManagement&gt;</p>
+                </div>
+                <img src="../site_resources/images/tut_item8/passo3.png" alt="Imagem do passo 3"/>
+            </div>
+            <div class="passo" id="passo4">
+                <p>Feito isso, execute a importação das classes Stub através do plugin wsimport que acabamos de configurar no pom.xml</p>
+                <p>Para isso, adicione um novo comando "<b>Maven build...</b>" com o goals "<b>clean jaxws:wsimport</b>" de forma que fica igual à imagem seguinte:</p>
+                <img src="../site_resources/images/tut_item8/passo4.png" alt="Imagem do passo 4"/>
+            </div>
+            <div class="passo" id="passo5">
+                <p>Clique em "<b>RUN</b>" e aguarde o processo apresentar a mensagem de sucesso "<b>BUILD SUCESS</b>"</p>
+                <p>Pressione F5 para atualizar o projeto (ou clique com o botão direito do mouse sobre o nome do projeto e clique em <b>refresh</b>)</p>
+                <p>Se tudo ocorrer bem, as classes Stubs serão importadas num pacote novo dentro da aplicação</p>
+                <img src="../site_resources/images/tut_item8/passo5.png" alt="Imagem do passo 5"/>
+            </div>
+            <div class="passo" id="passo6">
+                <p>Na classe SiteController, crie um novo mapeamento para listar e exibir o conteudo listado remotamente em uma página jsp</p>
+                <p>O novo mapeamento ficará da seguinte forma:</p>
+                <div class="codigo-java">
+                    <p><span class="java-annotation">@RequestMapping</span>(<span class="java-string">"listarMunicipios"</span>)</p>
+                    <p><span class="java-import">public</span> String listarMunicipios(Model model){</p>
+                    <p>&emsp;<span class="java-import">try</span>{</p>
+                    <p>&emsp;&emsp;URL wsdl = new URL(<span class="java-string">"http://soap-sample.herokuapp.com/municipios?wsdl"</span>);</p>
+                    <p>&emsp;&emsp;QName implementacaoDoServicoRemoto = new QName(<span class="java-string">"http://impl.webservices.fuctura.com.br/"</span>, <span class="java-string">"MunicipiosWSImplService"</span>);</p>
+                    <p>&emsp;&emsp;Service servicoGenerico = Service.<span class="java-static">create</span>(wsdl, implementacaoDoServicoRemoto);</p>
+                    <p>&emsp;&emsp;MunicipiosWS portDoServicoRemoto = servicoGenerico.getPort(MunicipiosWS.<span class="java-import">class</span>);</p>
+                    <p>&emsp;&emsp;Municipios municipios = portDoServicoRemoto.listar();</p>
+                    <p>&emsp;&emsp;model.addAttribute(<span class="java-string">"listaDeMunicipios"</span>,municipios.getListaDeMunicipios().getMunicipio());</p>
+                    <p>&emsp;&emsp;return <span class="java-string">"municipios"</span>;</p>
+                    <p>&emsp;}</p>
+                    <p>&emsp;<span class="java-import">catch</span>(Exception e){</p>
+                    <p>&emsp;&emsp;Logs.<span class="java-static">warn</span>(<span class="java-string">"[SiteController]::listarMunicipios::Erro tentando listar municipios remotamente. Exception:"</span>);</p>
+                    <p>&emsp;&emsp;e.printStackTrace();</p>
+                    <p>&emsp;&emsp;<span class="java-import">return</span> <span class="java-string">"redirect:home"</span>;</p>
+                    <p>&emsp;}</p>
+                    <p>}</p>
+                </div>
+                <img src="../site_resources/images/tut_item8/passo6.png" alt="Imagem do passo 6"/>
+            </div>
+            <div class="passo" id="passo7">
+                <p>Crie a página "municipios.jsp" dentro da pasta views conforme a imagem a seguir:</p>
+                <img src="../site_resources/images/tut_item8/passo7.png" alt="Imagem do passo 7"/>
+            </div>
+            <div class="passo" id="passo8">
+                <p>Execute o redeploy da aplicação, aguarde a mensagem de "<b>BUILD_SUCESS</b>" e teste  no navegar usando sua URL (normalmente é <a href="http://localhost:8080/springwebapp/listarMunicipios">http://localhost:8080/springwebapp/listarMunicipios</a>)</p>
+                <img src="../site_resources/images/tut_item8/passo8.png" alt="Imagem do passo 7"/>
+            </div>
+            <div class="passo" id="passo8">
+                <p>Acesse o codigo deste tutorial <a href="https://github.com/professordouglasfilho/aulasetutoriais/tree/master/tutoriais/soap-client/springwebapp">neste link</a>.</p>
+            </div>
+            <p>Continue nos acompanhando, acesse nossa <a href="../index.html">home</a> e veja o quanto pode aprender com Java.</p>
+            <p style="float: right;padding-right:210px;">Até mais!</p>
+            <br>
+            <br>
+            <hr>
+            <h4 style="color:black;">Acesse este projeto no github: <a href="https://github.com/professordouglasfilho">https://github.com/professordouglasfilho</a></h4>
+        </div>
+    </body>
+</html>

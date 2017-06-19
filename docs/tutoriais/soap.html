@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Criando WebService SOAP</title>
+        <meta charset="utf-8">
+
+        <!-- CSS padrão -->
+		<link href='../site_resources/css/default.css' rel="stylesheet" type="text/css">
+		<!-- CSS Bootstrap -->
+		<link href='../site_resources/css/bootstrap.css' rel="stylesheet" type="text/css">
+		<!-- CSS Font Awesome -->
+		<link href='../site_resources/css/font-awesome.css' rel="stylesheet" type="text/css">
+		<!-- CSS jQuery-UI -->
+		<link href='../site_resources/js/jquery-ui.css' rel="stylesheet" type="text/css">
+		<!-- CSS de animações -->
+		<link href='../site_resources/css/animate.css' rel="stylesheet" type="text/css">
+		
+		<!-- jQuery (necessário para plugins Bootstrap's JavaScript) --> 
+		<script type="text/javascript" src='../site_resources/js/jquery.js'></script>
+		<!-- jQuery (necessário para plugins jQuery de gráficos) --> 
+		<script type="text/javascript" src='../site_resources/js/jquery-ui.js'></script>
+		<!-- Inclua, a seguir, todos os plugins pré-compilados, ou inclua arquivos individuais assim que necessário --> 
+		<script type="text/javascript" src='../site_resources/js/bootstrap.js'></script>
+		<!-- Script padrão do projeto --> 
+		<script type="text/javascript" src='../site_resources/js/default.js'></script>
+		
+		<!-- HTML5 shim e Respond.js para suporte a elementos e media queries no IE8 -->
+		<!-- WARNING: Respond.js não funciona se tentar visualizar a página via file:// -->
+		<!--[if lt IE 9]>
+		      <script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		      <script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+
+    </head>
+    <body>
+        <div class="imagem-de-fundo"></div>
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">
+                        Professor Douglas
+                    </a>
+                </div>
+                <div class="container-fluid navbar-left breadcrumb-margins">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Passos
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                            <li><a href="#passo1">Passo 1 - Execute o Tutorial 6 - Consumindo o XML da Web</a></li>
+                            <li><a href="#passo2">Passo 2 - Crie os pacotes do serviço</a></li>
+                            <li><a href="#passo3">Passo 3 - Crie a interface do serviço</a></li>
+                            <li><a href="#passo4">Passo 4 - Cria a classe que implementa a interface de serviço</a></li>
+                            <li><a href="#passo5">Passo 5 - Mude o acesso ao método geraMunicipios() em SiteController</a></li>
+                            <li><a href="#passo6">Passo 6 - Anote as classes modelo</a></li>
+                            <li><a href="#passo7">Passo 7 - Crie o arquivo "sun-jaxws.xml"</a></li>
+                            <li><a href="#passo8">Passo 8 - Dependencias de JAX-WS no pom.xml</a></li>
+                            <li><a href="#passo9">Passo 9 - Crie um listener em web.xml</a></li>
+                            <li><a href="#passo9">Passo 10 - Redeploy da aplicação</a></li>
+                            <li><a href="#passo11">Passo 11 - Veja o resultado no browser</a></li>
+                            <li><a href="#passo12">Passo 12 - Veja o codigo no GitHub</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="container-fluid navbar-right breadcrumb-margins">
+                    <ol class="breadcrumb">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="webxml.html">Tutorial 5 - XML na Web</a></li>
+                        <li><a href="frontconsumer.html">Tutorial 6 - Consumindo o XML da Web</a></li>
+                        <li class="active">Tutorial 7 - Webservice SOAP</li>
+                    </ol>
+                </div>
+            </div>
+        </nav>
+
+        <div id="main" class="container-fluid">
+            <h2 style="color:black;">Criando seu Webservice SOAP</h2>
+            <div class="passo" id="passo1">
+                <p>Para prosseguir com este tutorial é necessário que já tenha executado com êxito o <a href="frontconsumer.html">Tutorial 6 - Consumindo o XML da Web</a></p>
+                <img src="../site_resources/images/tut_item7/passo1.png" alt="Imagem do passo 1"/>
+            </div>
+            <div class="passo" id="passo2">
+                <p>Iremos utilizar a estrutura do projeto e adicionaremos pequenas mudanças pra servir o nosso WebService</p>
+                <p>Ao final iremos ter o mesmo resultado anterior, porém, através do uso de um WebService SOAP</p>
+                <p>Primeiro, crie os pacotes que serão usados para criar a interface de serviço (<b>br.com.fuctura.webservices</b>)</p>
+                <p>e sua implementação (<b>br.com.fuctura.webservices.impl</b>)</p>
+                <img src="../site_resources/images/tut_item7/passo2.png" alt="Imagem do passo 2"/>
+            </div>
+            <div class="passo" id="passo3">
+                <p>Crie a interface do serviço (MunicipiosWS):</p>
+                <p>Clique com o botão direito do mouse sobre o pacote <b>br.com.fuctura.webservices</b> e clique em "New" > "Interface".</p>
+                <p>A interface deve ficar assim:
+                <div class="codigo-java">
+                    <p><span class="java-import">package</span> br.com.fuctura.webservices;</p>
+                    <br>
+                    <p><span class="java-import">import</span> javax.jws.WebMethod;</p>
+                    <p><span class="java-import">import</span> javax.jws.WebService;</p>
+                    <p><span class="java-import">import</span> javax.jws.soap.SOAPBinding;</p>
+                    <p><span class="java-import">import</span> javax.jws.soap.SOAPBinding.Style;</p>
+                    <p><span class="java-import">import</span> javax.jws.soap.SOAPBinding.Use;</p>
+                    <P>&emsp;</P>
+                    <p><span class="java-import">import</span> br.com.fuctura.model.Municipios;</p>
+                    <P>&emsp;</P>
+                    <p class="java-annotation">@WebService</p>
+                    <p><span class="java-annotation">@SOAPBinding</span>(style = Style.<span class="java-constant java-static">RPC</span>, use = Use.<span class="java-constant java-static">LITERAL</span>)</p>
+                    <p><span class="java-import">public interface</span> MunicipiosWS {</p>
+                    <P>&emsp;</P>
+                    <p>&emsp;<span class="java-annotation">@WebMethod</span>(operationName = <span class="java-string">"listar"</span>)</p>
+                    <p>&emsp;<span class="java-import">public</span> Municipios listar();</p>
+                    <p>&emsp;</p>
+                    <p>}</p>
+                </div>
+                <img src="../site_resources/images/tut_item7/passo3.png" alt="Imagem do passo 3"/>
+            </div>
+            <div class="passo" id="passo4">
+                <p>Agora vamos criar a classe que irá implementar a interface de serviço.</p>
+                <p>Nessa classe (MunicipiosWSImpl) será feita a lógica a ser executada, neste caso, ela ficará assim:</p>
+                <div class="codigo-java">
+                    <p><span class="java-import">package</span> br.com.fuctura.webservices.impl;</p>
+                    <P>&emsp;</P>
+                    <p><span class="java-import">import</span> javax.jws.WebService;</p>
+                    <P>&emsp;</P>
+                    <p><span class="java-import">import</span> br.com.fuctura.controller.SiteController;</p>
+                    <p><span class="java-import">import</span> br.com.fuctura.model.Municipios;</p>
+                    <p><span class="java-import">import</span> br.com.fuctura.webservices.MunicipiosWS;</p>
+                    <P>&emsp;</P>
+                    <p><span class="java-annotation">@WebService</span>(endpointInterface = <span class="java-string">br.com.fuctura.webservices.MunicipiosWS"</span>)</p>
+                    <p><span class="java-import">public</span> class MunicipiosWSImpl implements MunicipiosWS{</p>
+                    <p>&emsp;</p>
+                    <p>&emsp;@Override</p>
+                    <p>&emsp;<span class="java-import">public</span> Municipios listar() {</p>
+                    <p>&emsp;&emsp;Municipios municipios = SiteController.<span class="java-static">geraMunicipios()</span>;</p>
+                    <p>&emsp;&emsp;<span class="java-import">return</span> municipios;</p>
+                    <p>&emsp;}</p>
+                    <p>&emsp;</p>
+                    <p>}</p>
+                </div>
+                <img src="../site_resources/images/tut_item7/passo4.png" alt="Imagem do passo 4"/>
+            </div>
+            <div class="passo" id="passo5">
+                <p>Para que seja possível acessar o método <span class="java-static">geraMunicipios()</span> da classe SiteController, é necessário modificar a assinatura do método</p>
+                <p>Ele deve deixar de ser private para ser public static</p>
+                <img src="../site_resources/images/tut_item7/passo5.png" alt="Imagem do passo 5"/>
+            </div>
+            <div class="passo" id="passo6">
+                <p>Anote as classes modelo de acordo com o código as imagens abaixo, as anotações são necessárias para que a API JaxWS possa converter a classe e publica-la pela WSDL.</p>
+                <img src="../site_resources/images/tut_item7/passo6-1.png" alt="Imagem do passo 6 parte 1"/>
+                <img src="../site_resources/images/tut_item7/passo6-2.png" alt="Imagem do passo 6 parte 2"/>
+            </div>
+            <div class="passo" id="passo7">
+                <p>Dentro da pasta WEB-INF, crie um novo arquivo xml chamado "sun-jaxws.xml" com o seguinte código:</p>
+                <div class="codigo-java">
+                    <p>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</p>
+                    <p>&lt;endpoints xmlns=&quot;http://java.sun.com/xml/ns/jax-ws/ri/runtime&quot; version=&quot;2.0&quot;&gt;</p>
+                    <p>&lt;endpoint name=&quot;municipios&quot;</p>
+                    <p>&emsp;implementation=&quot;br.com.fuctura.webservices.impl.MunicipiosWSImpl&quot;</p>
+                    <p>&emsp;url-pattern=&quot;/municipios&quot;/&gt;</p>
+                    <p>&lt;/endpoints&gt;</p>
+                </div>
+                <img src="../site_resources/images/tut_item7/passo7.png" alt="Imagem do passo 7"/>
+            </div>
+            <div class="passo" id="passo8">
+                <p>Adicione as seguintes dependencias ao arquivo pom.xml de seu projeto:</p>
+                <div class="codigo-java">
+                    <p>&lt;dependency&gt;</p>
+                    <p>&emsp;&lt;groupId&gt;javax.xml.ws&lt;/groupId&gt;</p>
+                    <p>&emsp;&lt;artifactId&gt;jaxws-api&lt;/artifactId&gt;</p>
+                    <p>&emsp;&lt;version&gt;2.2.11&lt;/version&gt;</p>
+                    <p>&lt;/dependency&gt;</p>
+                    <p>&lt;dependency&gt;</p>
+                    <p>&emsp;&lt;groupId&gt;com.sun.xml.ws&lt;/groupId&gt;</p>
+                    <p>&emsp;&lt;artifactId&gt;jaxws-rt&lt;/artifactId&gt;</p>
+                    <p>&emsp;&lt;version&gt;2.2.10&lt;/version&gt;</p>
+                    <p>&lt;/dependency&gt;</p>
+                    <p>&lt;dependency&gt;</p>
+                    <p>&emsp;&lt;groupId&gt;org.glassfish.ha&lt;/groupId&gt;</p>
+                    <p>&emsp;&lt;artifactId&gt;ha-api&lt;/artifactId&gt;</p>
+                    <p>&emsp;&lt;version&gt;3.1.9&lt;/version&gt;</p>
+                    <p>&lt;/dependency&gt;</p>
+                </div>
+                <img src="../site_resources/images/tut_item7/passo8.png" alt="Imagem do passo 8"/>
+            </div>
+            <div class="passo" id="passo9">
+                <p>Crie um listener para o JAX-WS no arquivo "web.xml"</p>
+                <div class="codigo-java">
+                    <p>&lt;listener&gt;</p>
+                    <p>&emsp;&lt;listener-class&gt;</p>
+                    <p>&emsp;&emsp;com.sun.xml.ws.transport.http.servlet.WSServletContextListener</p>
+                    <p>&emsp;&lt;/listener-class&gt;</p>
+                    <p>&lt;/listener&gt;</p>
+                    <p>&lt;servlet&gt;</p>
+                    <p>&emsp;&lt;servlet-name&gt;municipios&lt;/servlet-name&gt;</p>
+                    <p>&emsp;&lt;servlet-class&gt;</p>
+                    <p>&emsp;&emsp;com.sun.xml.ws.transport.http.servlet.WSServlet</p>
+                    <p>&emsp;&lt;/servlet-class&gt;</p>
+                    <p>&emsp;&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</p>
+                    <p>&lt;/servlet&gt;</p>
+                    <p>&lt;servlet-mapping&gt;</p>
+                    <p>&emsp;&lt;servlet-name&gt;municipios&lt;/servlet-name&gt;</p>
+                    <p>&emsp;&lt;url-pattern&gt;/municipios&lt;/url-pattern&gt;</p>
+                    <p>&lt;/servlet-mapping&gt;</p>
+                </div>
+                <img src="../site_resources/images/tut_item7/passo9.png" alt="Imagem do passo 9"/>
+            </div>
+            <div class="passo" id="passo10">
+                <p>Com o Tomcat em execução, execute o "<a href="https://professordouglasfilho.github.io/aulasetutoriais/tutoriais/frontconsumer.html#passo6">Maven Build</a>" para redeployar sua aplicação no servidor.</p>
+                <img src="../site_resources/images/tut_item6/passo6.png" alt="Imagem do passo 10"/>
+            </div>
+            <div class="passo" id="passo11">
+                <p>Acesse a url <a href="http://localhost:8080/springwebapp/municipios">http://localhost:8080/springwebapp/municipios</a> para obter acesso ao serviço.</p>
+                <img src="../site_resources/images/tut_item7/passo11.png" alt="Imagem do passo 11"/>
+            </div>
+            <div class="passo" id="passo12">
+                <p>Acesse o codigo deste tutorial <a href="https://github.com/professordouglasfilho/aulasetutoriais/tree/master/tutoriais/soap/springwebapp">neste link</a>.</p>
+            </div>
+            <p>Continue nos acompanhando, acesse nossa <a href="../index.html">home</a> e veja o quanto pode aprender com Java.</p>
+            <p style="float: right;padding-right:210px;">Até mais!</p>
+            <br>
+            <br>
+            <hr>
+            <h4 style="color:black;">Acesse este projeto no github: <a href="https://github.com/professordouglasfilho">https://github.com/professordouglasfilho</a></h4>
+        </div>
+    </body>
+</html>

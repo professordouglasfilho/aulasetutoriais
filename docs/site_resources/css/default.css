@@ -156,3 +156,33 @@ hr {
     margin-top: 10px;
     margin-bottom: -10px;
 }
+
+.codigo-java{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 132%;
+    background-color: white;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: left;
+    font-weight: 500;
+}
+
+.java-import{
+    color: rgb(193, 58, 85);
+}
+
+.java-annotation{
+    color: rgb(100, 100, 100);
+}
+
+.java-constant{
+    color: rgb(58, 0, 192);
+}
+
+.java-static{
+    font-style: italic;
+}
+
+.java-string{
+    color: rgb(157, 58, 255);
+}
