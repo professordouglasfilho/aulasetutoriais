@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Testando WebService SOAP com SOAP-UI</title>
+        <meta charset="utf-8">
+
+        <!-- CSS padrão -->
+		<link href='../site_resources/css/default.css' rel="stylesheet" type="text/css">
+		<!-- CSS Bootstrap -->
+		<link href='../site_resources/css/bootstrap.css' rel="stylesheet" type="text/css">
+		<!-- CSS Font Awesome -->
+		<link href='../site_resources/css/font-awesome.css' rel="stylesheet" type="text/css">
+		<!-- CSS jQuery-UI -->
+		<link href='../site_resources/js/jquery-ui.css' rel="stylesheet" type="text/css">
+		<!-- CSS de animações -->
+		<link href='../site_resources/css/animate.css' rel="stylesheet" type="text/css">
+		
+		<!-- jQuery (necessário para plugins Bootstrap's JavaScript) --> 
+		<script type="text/javascript" src='../site_resources/js/jquery.js'></script>
+		<!-- jQuery (necessário para plugins jQuery de gráficos) --> 
+		<script type="text/javascript" src='../site_resources/js/jquery-ui.js'></script>
+		<!-- Inclua, a seguir, todos os plugins pré-compilados, ou inclua arquivos individuais assim que necessário --> 
+		<script type="text/javascript" src='../site_resources/js/bootstrap.js'></script>
+		<!-- Script padrão do projeto --> 
+		<script type="text/javascript" src='../site_resources/js/default.js'></script>
+		
+		<!-- HTML5 shim e Respond.js para suporte a elementos e media queries no IE8 -->
+		<!-- WARNING: Respond.js não funciona se tentar visualizar a página via file:// -->
+		<!--[if lt IE 9]>
+		      <script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		      <script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+
+    </head>
+    <body>
+        <div class="imagem-de-fundo"></div>
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">
+                        Professor Douglas
+                    </a>
+                </div>
+                <div class="container-fluid navbar-left breadcrumb-margins">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Passos
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                            <li><a href="#passo1">Passo 1 - Baixe e instale o SOAP-UI</a></li>
+                            <li><a href="#passo2">Passo 2 - Crie um novo projeto SOAP</a></li>
+                            <li><a href="#passo3">Passo 3 - Configure o projeto</a></li>
+                            <li><a href="#passo4">Passo 4 - Execute a requisição</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="container-fluid navbar-right breadcrumb-margins">
+                    <ol class="breadcrumb">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="xstreamsample.html">Tutorial 7 - Webservice SOAP</a></li>
+                        <li><a href="soap-client.html">Tutorial 8 - Consumindo WebService SOAP</a></li>
+                        <li class="active">Tutorial 9 - Teste de WebService SOAP com SOAP-UI</li>
+                    </ol>
+                </div>
+            </div>
+        </nav>
+
+        <div id="main" class="container-fluid">
+            <h2 style="color:black;">Teste de WebService SOAP com SOAP-UI</h2>
+            <div class="passo" id="passo1">
+                <p>Este tutorial tem como objetivo mostrar como testar seu WebService SOAP utilizando a ferramenta <a href="https://www.soapui.org/">SOAP-UI</a></p>
+                <p>Para isso, baixe a ferramenta <a href="https://www.soapui.org/downloads/latest-release.html">nesta página</a> selecionando a sua plataforma de trabalho</p>
+                <img src="../site_resources/images/tut_item9/passo1.png" alt="Imagem do passo 1"/>
+            </div>
+            <div class="passo" id="passo2">
+                <p>Após baixar e instalar a ferramenta, crie um novo projeto SOAP</p>
+                <p>Clique com o botão direito do mouse sobre o workspace e clique em "New SOAP Project"</p>
+                <img src="../site_resources/images/tut_item9/passo2.png" alt="Imagem do passo 2"/>
+            </div>
+            <div class="passo" id="passo3">
+                <p>Preencha os dados de nome do projeto e WSDL inicial conforme a imagem:</p>
+                <img src="../site_resources/images/tut_item9/passo3.png" alt="Imagem do passo 3"/>
+            </div>
+            <div class="passo" id="passo4">
+                <p>Feito isso, clique em "Ok" e aguarde o carregamento do WSDL</p>
+                <p>Após o carregamento aparecerão os dados importados do WSDL, onde é possível selecionar um método e fazer uma requisição contra o mesmo.</p>
+                <img src="../site_resources/images/tut_item9/passo4.png" alt="Imagem do passo 4"/>
+            </div>
+            <p>Continue nos acompanhando, acesse nossa <a href="../index.html">home</a> e veja o quanto pode aprender com Java.</p>
+            <p style="float: right;padding-right:210px;">Até mais!</p>
+            <br>
+            <br>
+            <hr>
+            <h4 style="color:black;">Acesse este projeto no github: <a href="https://github.com/professordouglasfilho">https://github.com/professordouglasfilho</a></h4>
+        </div>
+    </body>
+</html>
