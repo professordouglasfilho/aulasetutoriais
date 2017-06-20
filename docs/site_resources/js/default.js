@@ -38,7 +38,7 @@ $(document).ready(function(){
     $(".codigo-java").hide();
 
     //Adiciona efeitos a imagens
-    $("img").click(imgClick);
+    $(".passo img").click(imgClick);
 });
 
 function exibirCodigo(event){
